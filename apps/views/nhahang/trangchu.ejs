@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<title> Trang Chủ  </title>
+	<%- include ../admin/layout/head %>
+ </head>
+<body >
+	<%- include ../admin/layout/topheader %>
+		
+ 	
+ 	<div class="logovamenu">
+	    <nav class="navbar navbar-light  fontroboto">
+	    	<div class="container">    	
+			      <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#mtren">
+			       
+			      </button>
+			      <div class="collapse navbar-toggleable-xs" id="mtren">
+			        <a class="navbar-brand text-xs-center text-sm-left" href="#"><img src="/static/images/logo.png" alt=""></a>
+
+			        <ul class="nav navbar-nav float-sm-right">
+			         <li class="nav-item">
+			            <a class="nav-link" href="/">Home  </a>
+			          </li>
+			           <li class="nav-item">
+			            <a class="nav-link" href="/menu">Menu  </a>
+			          </li>
+			          <!-- <li class="nav-item active">
+			            <a class="nav-link" href="/admin">User</a>
+			          </li>
+			          <li class="nav-item">
+			            <a class="nav-link" href="/admin/signin">Sign in</a>
+			          </li> -->
+			          <li class="nav-item dropdown active">
+						    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+						    <div class="dropdown-menu">
+						      <a class="dropdown-item" href="#">User</a>
+						      <a class="dropdown-item active1" href="/admin/signin">Sign in</a>
+						      <a class="dropdown-item" href="/admin/signup">Sign up</a>
+						      <div class="dropdown-divider"></div>
+						      <a class="dropdown-item active1" href="/admin">Admin</a>
+						    </div>
+  					</li>
+			         <li class="nav-item datbanmenu">
+			            <a class="nav-link btn btn-warning wow bounce" data-wow-iteration="3" href="#" >Reservation</a>
+			          </li>
+			        </ul>
+			      </div>
+	      </div> <!-- het container -->
+	    </nav>
+ 	</div> <!-- het logo va menu -->
+ 	
+<div class="slide">
+ 	<div id="slidehome" class="carousel slide slidecon" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#slidehome" data-slide-to="0" class="active"></li>
+				<li data-target="#slidehome" data-slide-to="1"></li>
+				<li data-target="#slidehome" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="carousel-item active">		
+					<div class="chu">
+						<h2 class=" fontoswarld"><%= slides.slides[0].title %> </h2>
+						<p  ><%- slides.slides[0].content %>  </p>
+						<a href="" class="nutslide fontoswarld btn btn-warning"> <%= slides.slides[0].button_content %></a>
+					</div>
+					<img src="<%= slides.slides[0].image %>" alt="">
+ 				</div>
+				<div class="carousel-item">
+					<div class="chu">
+						<h2 class=" fontoswarld"><%= slides.slides[1].title %> </h2>
+						<p  ><%- slides.slides[1].content %>  </p>
+						<a href="" class="nutslide fontoswarld btn btn-warning"> <%= slides.slides[1].button_content %></a>
+					</div>
+					<img src="<%= slides.slides[1].image %>" alt="">
+				</div>
+				<div class="carousel-item">
+					<div class="chu">
+						<h2 class=" fontoswarld"><%= slides.slides[2].title %> </h2>
+						<p  ><%- slides.slides[2].content %>  </p>
+						<a href="" class="nutslide fontoswarld btn btn-warning"> <%= slides.slides[2].button_content %></a>
+					</div>
+					<img src="<%= slides.slides[2].image %>" alt="">
+				</div>
+			</div>
+			<a class="left carousel-control" href="#slidehome" role="button" data-slide="prev">
+				<span class="icon-prev" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#slidehome" role="button" data-slide="next">
+				<span class="icon-next" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+ 	</div> <!-- het slide  -->
+ 	
+
+ 	
+  	<div class="khoimenu wow fadeInUp">  
+ 		<div class="tieudekhoimenu text-xs-center">
+ 			<div class="container">
+ 				<div class="row">
+ 					<div class="col-sm-8 push-sm-2">
+ 						<span class="tieudephu fontdancing">Our Delicious Menu Items</span>
+ 						<h3 class="tieudechinh fontroboto">Fresh And Healthy Food Available</h3>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			
+ 		</div>   <!-- HET TIEUDEKHOIMENU -->
+ 	</div>  <!-- HET KHOI MENU -->
+
+ 	<div class="thucdonct wow fadeInUp">
+ 		<div class="tieudect text-xs-center fontroboto">
+ 			
+		 			<a href="" data-monan="*"><%= menuTC.post.atr1 %> </a>
+		 			<a href="" data-monan=".sang"><%= menuTC.post.atr2 %></a>
+		 			<a href="" data-monan=".trua"><%= menuTC.post.atr3 %></a>
+		 			<a href="" data-monan=".toi"><%= menuTC.post.atr4 %></a> 
+ 		</div>
+ 		<div class="noidungct">
+ 			 <div class="container">
+ 			 	<div class="row nhieumon">
+
+ 			 		 <% if(data && data.cacmonan) {%>
+                            <% for(var i = 0; i<data.cacmonan.length; i++) {%>
+
+			 			 		<div  class="col-xs-12 col-sm-6 col-md-4   motmon <%= data.cacmonan[i].bua %>">
+			 			 			<div class="row">
+			 			 				<div class="col-xs-3 col-sm-4">
+			 			 					<div class="anhmon">
+			 			 						<!-- <div class="tagnew">NEW</div> -->
+			 			 						<img src="<%= data.cacmonan[i].hinhanh %>" alt="" id="<%= data.cacmonan[i].id %>" class="img-fluid ">
+			 			 					</div>
+
+			 			 					
+			 			 				</div>
+			 			 				<div class="col-xs-9 col-sm-8">
+			 			 					<div class="tenmon">
+			 			 						<div class="tren">
+			 			 							<span class="float-xs-right"><%= data.cacmonan[i].gia %></span>
+			 			 							<b class="ten"><%= data.cacmonan[i].ten %></b>
+			 			 						</div>
+			 			 						<div class="duoi">
+			 			 							<%= data.cacmonan[i].gioithieu %>
+			 			 						</div>
+			 			 						<a class="nutchitiet" href="/monan/<%= data.cacmonan[i].id %>" >Chi tiết</a>
+
+			 			 					</div>
+			 			 				</div>
+			 			 			</div> <!-- het row -->
+			 			 		</div>  <!-- het motmon -->
+ 			 		        <%}%>
+                       <%}%>
+ 			 		
+ 			 	</div> <!-- het row -->
+ 			 </div>  <!-- het container -->
+ 			 
+ 	
+
+
+ 	<div class="gioithieudaubep  wow fadeInUp">
+ 		<div class="container">
+ 			<div class="row">
+ 				<div class="col-sm-4">
+ 					<img src="http://betheme.muffingroupsc.netdna-cdn.com/be/restaurant/wp-content/uploads/2015/02/home_restaurant_heart_of_food.jpg" alt="" class="img-fluid">
+ 				</div>
+ 				<div class="col-sm-7 push-sm-1 ">
+ 					<div class="thongtin">
+ 						<h2 class="fontoswarld">Stevan Smith</h2>
+ 						<span class="fontdancing">The Master of Cooking</span>
+ 						<p>
+ 							Steve Smith’s first Michelin star was achieved at Gordleton Mill in Hampshire at the tender age of 24. He had risen to the position of head chef after initially working under the legendary Jean-Christophe Novelli. From here, further Michelin recognition followed as head chef at Holbeck Ghyll, Guellers and Seaham Hall, also winning 2 ‘Hats’ (the Australian equivalent to a Michelin star) whilst working in Melbourne.
+ 						</p>
+ 					</div> <!-- het thong tin -->
+ 					<div class="daubepcontact">
+ 						<a href="" class="icondb"><i class="fa fa-facebook"></i></a>
+ 						<a href="" class="icondb"><i class="fa fa-vimeo"></i></a>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div><!--  HET GIOI THIEU DAU BEP	 -->
+
+	<div class="sloganhome wow fadeInUp">
+		<div class="container text-xs-center">
+		 	 <div class="row">
+		 	 	<div class="col-sm-8 push-sm-2">
+		 	 		<h3 class="fontdancing"> Enjoy Pleasant Pastime With Friends and Partners</h3>
+					<span class="fontroboto">Relaxing Atmosphere</span>
+		 	 	</div>
+		 	 </div>
+			
+		</div>
+	</div> <!-- het slogan home  -->
+
+
+	</div>  <!-- HET TIN TUC O TRANG HOME -->
+
+	<div class="footertop">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 cotf1 mb-2 wow fadeInUp" data-wow-delay="0s">
+					<a href=""><img src="/static/images/logofoot.png" alt="" class="logof"></a>
+					<p>You are everything of us.</p>
+					<!-- <div class="motdong">
+						<i class="fa fa-paper-plane-o"></i>
+						<span class="textmd">Address : 44 New Design Street,<br>
+						Melbourne 005</span>
+					</div>
+					<div class="motdong">
+						<i class="fa fa-phone"></i>
+						<span class="textmd">Phone : (01) 800 433 633</span>
+					</div>
+					<div class="motdong">
+						<i class="fa fa-envelope-o"></i>
+						<span class="textmd">Email : info@Example.com</span>
+					</div> -->
+					
+
+				</div>  <!-- HET COTF1 -->
+				<div class="col-sm-2 push-sm-1 cotf2 mb-2  wow fadeInUp" data-wow-delay="0.1s">
+					<h2 class="tdft">Category </h2>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/admin">Admin  </a></li>
+						<li><a href="/admin/signin">Sign in  </a></li>
+						
+					</ul>
+				</div>  <!-- HET COTF2 -->
+				<div class="col-sm-3  cotf3 mb-2 wow  fadeInUp" data-wow-delay="0.2s">
+					<h2 class="tdft">Member</h2>
+					<ul>
+						<li><a href="https://www.facebook.com/thang.nam.1865">Thang Vỹ Nam-1512341 </a></li>
+						<li><a href="https://www.facebook.com/hungphat119">Nguyễn Hưng Phát-1512393  </a></li>
+						<li><a href="https://www.facebook.com/phu.ledinh.982">Lê Đình Phú-1512411  </a></li>
+					</ul>
+				</div>  <!-- HET COTF3 -->
+				<div class="col-sm-3  cotf4 wow  fadeInUp" data-wow-delay="0.3s">
+					<h2 class="tdft">Openning hours </h2>
+					<div class="openning1">
+						<div class="phai float-xs-right">9:00 am - 23:00 pm</div>
+						<div class="trai">Mon — Fri</div>
+					</div>
+					 <div class="openning1">
+						<div class="phai float-xs-right">10:00 am - 23:00 pm</div>
+						<div class="trai">Saturday </div>
+					</div>
+					 <div class="openning1">
+						<div class="phai float-xs-right">10:00 am - 23:00 pm</div>
+						<div class="trai">Sunday   </div>
+					</div>
+					 
+					<p>Note: Arctica Restaurant is closed on holidays.</p>
+				</div>  <!-- HET COTF4 -->
+				
+			</div>
+		</div>
+	</div>  <!-- HET FOOTERTOP -->
+
+	<div class="footerbottom text-xs-center fontroboto wow  fadeInUp" data-wow-delay="0s">
+		 Copyrights © 2015  All Rights Reserved. 
+	</div>
+
+</body>
+</html>
