@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
+    <style>
+    	 body{
+		    background: url(/static/images/dangnhapadmin.jpg);
+		    background-attachment: scroll;
+		    background-position: center center;
+		    -webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    -o-background-size: cover;
+		    background-size: cover;
+    	}
+    </style>
+</head>
+<body>	
+
+    <div class="container">
+
+        <form role="form" class="AVAST_PAM_nonloginform" method="POST" action="/admin/signup/code">
+            <div id="signupalert" style="<%if (!data || !data.error) {%>display:none;
+                <%}%>" class="alert alert-danger">
+                <p>Error:</p>
+                <% if (data && data.error){%>
+                <span><%= data.error %></span>
+                <%}%>
+            </div>
+            <div class="form-group">
+                <label>Nhập Code:</label>
+                <input type="text" class="form-control" name="pass" placeholder="Code">         
+            </div>
+
+            <input type="hidden" class="form-control" name="email" value="<%= data.email %>">
+        <input type="hidden" class="form-control" name="password" value="<%= data.password %>">
+        <input type="hidden" class="form-control" name="firstname" value="<%= data.first_name %>">
+        <input type="hidden" class="form-control" name="lastname" value="<%= data.last_name %>">
+        <input type="hidden" class="form-control" name="code1" value="<%= data.code1 %>">
+            <input type="submit" name="" value="Gửi" class="btn btn-warning">
+        
+        
+        </form>
+    </div>
+   
+   
+
+</body>
