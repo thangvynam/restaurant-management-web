@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Profile</title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script> -->
+<!-- Meta tag Keywords -->
+<!-- css files -->
+<link href="/static/css/profile.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="/static/css/profile-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+<!-- //css files -->
+<!-- online-fonts -->
+<link href="//fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<!--//online-fonts -->
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="header">
+	<h1>user profile form</h1>
+</div>
+<div class="w3-main">
+
+		<div class="form-w3l">
+			<div class="img">
+				<img src="/static/images/images_profile/profile.jpg" alt="image">
+				<h2>Profile</h2>
+			</div>	
+			<!-- Thông tin user -->
+			<form action="/profile/edit/<%= id %>" method="POST" class="form1">
+				<div class="w3l-user" style="<%if (!data || !data.error) {%>display:none;
+                            <%}%>">
+                    <% if (data && data.error) {%>
+                  		<h2 style="color: black;"><%=data.error%></h3>
+                    <%}%>
+				</div>
+
+				<div class="w3l-user">
+					<span><i class="fa fa-user w3l-1" aria-hidden="true"></i></span>
+					<input type="text" name="firstname" value="<%= user.first_name %>"/>
+					<div class="clear"></div>
+				</div>
+
+				<div class="w3l-user">
+					<span><i class="fa fa-user w3l-1" aria-hidden="true"></i></span>
+					<input type="text" name="name" value="<%= user.last_name %>"/>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="w3l-email">
+					<span><i class="fa fa-envelope-o w3l-3" aria-hidden="true"></i></span>
+					<input type="email" name="gmail"  value="<%= user.email %>"/>
+					<div class="clear"></div>
+				</div>
+				
+				<!-- <div class="w3l-phone">	
+					<span><i class="fa fa-mobile w3l-4" aria-hidden="true"></i></span>
+					<input type="text" name="phone" placeholder="Phone" />
+					<div class="clear"></div>
+				</div> -->
+
+				<div class="w3l-password">
+					<span><i class="fa fa-lock w3l-2" aria-hidden="true"></i></span>
+					<input type="password" name="oldpassword" placeholder="Old Password" class="thaydoi"
+						/>
+					<div class="clear"></div>
+				</div>
+				<div class="w3l-password">
+					<span><i class="fa fa-lock w3l-2" aria-hidden="true"></i></span>
+					<input type="password" name="newpassword" placeholder="New Password" class="an"/>
+					<div class="clear"></div>
+				</div>
+				<div class="w3l-password">
+					<span><i class="fa fa-lock w3l-2" aria-hidden="true"></i></span>
+					<input type="password" name="confirmpassword" placeholder="Confirm New Password" class="an"/>
+					<div class="clear"></div>
+				</div>	
+				
+				<div class="w3l-btn k">
+					<input type="submit" name="button" value="Edit"/>
+					<a href="/" class="button back" >Back</a>
+				</div>
+				<!-- <div class="w3l-btn">
+					
+					<button class="button btn btn-warning change style_button">Change Password</button>
+				</div> -->
+
+				<input type="hidden" name="id" value="<%= id %>"/>
+
+			</form>
+		</div>
+</div>
+
+
+<script src="/static/js/profile.js"></script>
+</body>
+</html>
