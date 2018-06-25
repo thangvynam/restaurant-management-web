@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Handle</title>
+	<%- include ../layout/head %>
+</head>
+<body>
+	<%- include ../layout/nav %>
+
+	<!-- <div class="container">
+	<div class="row" style="margin-bottom:10px">
+		<div class="col-sm-12">
+			<a href="/admin/monan/themmonan" class="btn btn-success pull-right">Thêm món ăn</a>
+		</div>
+	</div>
+	</div> -->
+	<div class="container">
+	<div class="panel panel-default">
+        <!-- <div class="panel-heading">
+            Posts
+        </div> -->
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <% if(data && data.user) {%>
+                            <% for(var i = 0; i<data.user.length; i++) {%>
+                                <tr>
+                                    <td> <%= data.user[i].id %> </td>
+                                    <td> <%= data.user[i].email %> </td>
+                                    <td> <%= data.user[i].password %> </td>
+                                    <td> <%= data.user[i].first_name %> </td>
+                                    <td> <%- data.user[i].last_name %> </td>
+                                </tr>
+                            <%}%>
+                       <%}%>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+     </div>
+     </div>
+     <script type="text/javascript" src="/static/js/edit.js"></script>
+</body>
+</html>
