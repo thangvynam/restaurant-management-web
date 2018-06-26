@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit-Header</title>
+	<%- include ../layout/head %>
+</head>
+<body>
+	
+	<%- include ../layout/nav %>
+	<div class="container">
+
+
+		<div class="row">
+			<div class="col-sm-6 push-sm-3">
+				<h3 class="display text-sm-center">Sửa Header</h3>
+				<% if(data && data.error){%>
+			            <div id="login-alert" class="alert alert-danger col-sm-12">
+			               <%= data.error %> 
+			            </div>
+			        <%}%>
+				<form method="" action="" >
+					
+			        <input type="hidden" name="id" class="id" value="<% if(data && data.post) {%> <%= data.post.id %> <%}%>">
+					<fieldset class="form-group">
+						<label for="formGroupExampleInput">Link Facbook</label>
+						<input id="fb" name="fb" type="text" class="form-control fb" value="<% if(data && data.post) {%> <%= data.post.fb %> <%}%>">
+					</fieldset>
+					<fieldset class="form-group">
+						<label for="formGroupExampleInput">Gmail</label>
+						<input id="mail" name="mail" type="text" class="form-control mail" value="<% if(data && data.post) {%> <%= data.post.mail %> <%}%>">
+					</fieldset>
+					<fieldset class="form-group">
+						<label for="formGroupExampleInput">Phone</label>
+						<input id="sdt" name="sdt" type="text" class="form-control sdt" value="<% if(data && data.post) {%> <%= data.post.sdt %> <%}%>">
+					</fieldset>
+					<fieldset class="form-group">
+						<label for="formGroupExampleInput">Openning</label>
+						<input id="time" name="time" type="text" class="form-control time" value="<% if(data && data.post) {%> <%= data.post.time %> <%}%>">
+					</fieldset>
+
+					<fieldset class="form-group">
+						<input type="button" class="form-control btn btn-outline-info sua_header"  value="Lưu"> 
+					</fieldset>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	 <script type="text/javascript" src="/static/js/header.js"></script>
+</body>
+</html>
